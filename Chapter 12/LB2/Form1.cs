@@ -13,6 +13,8 @@ namespace LB2
     public partial class Form1 : Form
     {
         Item[] items = new Item[20];
+
+        int itemsCreated;
         public Form1()
         {
             InitializeComponent();
@@ -22,6 +24,9 @@ namespace LB2
             items[2] = new Item("Dixie Redneck", "1122-3344", 20m, "1020", 25, 400m, "Brainverse");
             items[3] = new Item("Waterfall", "1029-3847", 10m, "2938", 30, 250m, "Photobean");
             items[4] = new Item("Feel the Heat", "3948-5764", 50m,"9999", 10, 400m, "Feedfire");
+            itemsCreated = 4;
+
+            
 
 
         }
@@ -29,6 +34,18 @@ namespace LB2
         private void btnNameSearch_Click(object sender, EventArgs e)
         {
             string nameSearch = txtSearchByName.Text;
+
+            bool nameFound = true;
+
+            for(int i = 0; i <= itemsCreated && nameFound==false ; i++)
+            {
+                if (items[i].Name.ToLower().Contains(nameSearch))
+                {
+                    nameFound = true;
+                    lblName.Text = items[i].ToString();
+                }
+
+            }
 
             
         }
@@ -60,7 +77,12 @@ namespace LB2
             int addUnitsPerCase = int.Parse(txtAddUnits.Text);
             string distributor = txtAddDistributor.Text;
 
-            Item newItems = new Item(nameAdd, codeAdd, priceAdd, accessKey, addUnitsPerCase, addCostPerCase, distributor);
+            itemsCreated++;
+            items[itemsCreated] = new Item(nameAdd, codeAdd, priceAdd, accessKey, addUnitsPerCase, addCostPerCase, distributor);
+
+
+
+
 
 
 
