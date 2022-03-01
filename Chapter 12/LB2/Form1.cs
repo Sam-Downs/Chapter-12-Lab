@@ -33,16 +33,22 @@ namespace LB2
 
         private void btnNameSearch_Click(object sender, EventArgs e)
         {
-            string nameSearch = txtSearchByName.Text;
+            string nameSearch = txtSearchByName.Text.ToLower();
 
-            bool nameFound = true;
+            bool nameFound = false;
 
             for(int i = 0; i <= itemsCreated && nameFound==false ; i++)
             {
                 if (items[i].Name.ToLower().Contains(nameSearch))
                 {
                     nameFound = true;
-                    lblName.Text = items[i].ToString();
+                    lblName.Text = items[i].Name.ToString();
+                    lblCode.Text = items[i].UPC.ToString();
+                    lblCostPerCase.Text = items[i].CostPerCase.ToString();
+                    lblDistributor.Text = items[i].Distributor.ToString();
+                    lblStorePrice.Text = items[i].Price.ToString();
+
+
                 }
 
             }
@@ -52,7 +58,21 @@ namespace LB2
 
         private void btnCodeSearch_Click(object sender, EventArgs e)
         {
-            string codeSearch = txtSearchByCode.Text;
+            string codeSearch = txtSearchByCode.Text.ToLower();
+
+           
+
+            bool nameFound = false;
+
+            for (int i = 0; i <= itemsCreated && nameFound == false; i++)
+            {
+                if (items[i].UPC.ToLower().Contains(codeSearch))
+                {
+                    nameFound = true;
+                    lblCode.Text = items[i].UPC.ToString();
+                }
+
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
