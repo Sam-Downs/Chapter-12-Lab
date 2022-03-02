@@ -42,6 +42,12 @@ namespace LB2
             get { return _price; }
             set { _price = value; }
         }
+
+        public string AccessKey
+        {
+            get { return _accessKey; }
+            set { _accessKey = value; }
+        }
         public int UnitsPerCase
         {
             get { return _unitsPerCase; }
