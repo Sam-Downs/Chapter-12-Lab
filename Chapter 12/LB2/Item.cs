@@ -16,12 +16,11 @@ namespace LB2
         private decimal _costPerCase;
         private string _distributor;
 
-        public Item(string name, string upc, decimal price, string accessKey, int unitsPerCase, decimal costPerCase, string distributor)
+        public Item(string name, string upc, decimal price, int unitsPerCase, decimal costPerCase, string distributor)
         {
             _name = name;
             _upc = upc;
             _price = price;
-            _accessKey = accessKey;
             _unitsPerCase = unitsPerCase;
             _costPerCase = costPerCase;
             _distributor = distributor;
@@ -43,11 +42,6 @@ namespace LB2
             set { _price = value; }
         }
 
-        public string AccessKey
-        {
-            get { return _accessKey; }
-            set { _accessKey = value; }
-        }
         public int UnitsPerCase
         {
             get { return _unitsPerCase; }
